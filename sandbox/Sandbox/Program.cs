@@ -14,6 +14,11 @@ class Program
 
         Console.WriteLine($"My integer: {x}, my double: {y}, the string: {a}");
 
+        for (int j = 0; j < 10; j++)
+        {
+            Console.WriteLine(j);
+        }
+
         // string response = Console.Read("Input your age: ");
     }
 }
