@@ -34,7 +34,7 @@ class Program
 
         // Get the sign associated with the grade
         string sign = "";
-        int getSign = percentage / 10;
+        int getSign = percentage % 10;
         if (getSign >= 7)
         {
             sign = "+";
@@ -52,11 +52,11 @@ class Program
         Console.WriteLine($"According to our calculations...");
         if (percentage >= 70)
         {
-            Console.WriteLine($"Well done! You passed with a {sign}{grade}");
+            Console.WriteLine($"Well done! You passed with a {grade}{sign}");
         }
         else
         {
-            Console.WriteLine($"Your grade is {sign}{grade}. You failed.");
+            Console.WriteLine($"Your grade is {grade}{sign}. You failed.");
         }
     }
 }
