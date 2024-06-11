@@ -10,6 +10,7 @@ class Program
         int percentage = int.Parse(value);
         string grade = "";
 
+        // Identify letter grade from the percentage
         if (percentage >= 90)
         {
             grade = "A";
@@ -31,14 +32,31 @@ class Program
             grade = "F";
         }
 
-        Console.WriteLine($"According to our calculations...");
-        if (percentage >= 70)
+        // Get the sign associated with the grade
+        string sign = "";
+        int getSign = percentage / 10;
+        if (getSign >= 7)
         {
-            Console.WriteLine($"Well done! You passed with a {grade}");
+            sign = "+";
+        }
+        else if (getSign <= 3)
+        {
+            sign = "-";
         }
         else
         {
-            Console.WriteLine($"Your grade is {grade}. You failed.");
+            sign = "";
+        }
+        
+        // Display the letter grade and whether or not they failed
+        Console.WriteLine($"According to our calculations...");
+        if (percentage >= 70)
+        {
+            Console.WriteLine($"Well done! You passed with a {sign}{grade}");
+        }
+        else
+        {
+            Console.WriteLine($"Your grade is {sign}{grade}. You failed.");
         }
     }
 }
