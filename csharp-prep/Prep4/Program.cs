@@ -37,7 +37,7 @@ class Program
         // Calculate average
         int average = sumTotal / n;
 
-        Console.WriteLine(numbers);
+        // Console.WriteLine(numbers);
         Console.WriteLine($"sumTotal: {sumTotal}");
         Console.WriteLine($"Average: {average}");
         Console.WriteLine($"Maximum: {max}");
