@@ -7,7 +7,7 @@ class Program
     {
         Console.WriteLine("Hello Prep4 World!");
 
-        Console.WriteLine("Enter a list of numbers, one by one, as prompted.");
+        Console.WriteLine("Enter a list of numbers, one by one, as prompted. Enter 0 to quit. ");
         int number ;
         List<int> numbers = new List<int>();
         do
@@ -22,12 +22,12 @@ class Program
         }while(number != 0);
 
         int sumTotal = 0;
-        int n = 0;
+        // int n = 0;
         int max =0;
         foreach (int i in numbers)
         {
             sumTotal += i;
-            n += 1;
+            // n += 1;
             if (i > max)
             {
                 max = i;
@@ -35,7 +35,7 @@ class Program
         }
 
         // Calculate average
-        int average = sumTotal / n;
+        float average = (float)sumTotal / numbers.Count();
 
         // Console.WriteLine(numbers);
         Console.WriteLine($"sumTotal: {sumTotal}");
