@@ -22,7 +22,7 @@ public class Prompt
         Random rd = new Random();
         int questionIndex = rd.Next(_questions.Count);
         _question = _questions[questionIndex];
-        Console.WriteLine($"{questionIndex}{_question}");
+        // Console.WriteLine($"{questionIndex}{_question}");
         return _question;
     }    
 }
