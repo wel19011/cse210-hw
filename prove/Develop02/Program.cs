@@ -11,13 +11,15 @@ class Program
         Entry response1 = new Entry();
         response1.FillEntry("How was your day?");
         
-        Entry response2 = new Entry();
-        response2.FillEntry("What interesting thing did you see?");
+        // Entry response2 = new Entry();
+        // response2.FillEntry("What interesting thing did you see?");
 
         Journal myJournal = new Journal();
         myJournal.AddEntry(response1);
-        myJournal.AddEntry(response2);
+        // myJournal.AddEntry(response2);
         myJournal.DisplayJournal();
 
+        Prompt prompt1 = new Prompt();
+        prompt1.ChooseQuestion();
     }
 }
