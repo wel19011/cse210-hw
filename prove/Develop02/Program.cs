@@ -8,6 +8,12 @@ class Program
         Console.WriteLine("Welcome to the Journal Program");
 
         Entry response1 = new Entry();
-        response1.GetDate();
+        response1._currentDate = GetDate();
+        response1._response = GetResponse();
+        
+
+        // Journal entry1 = new Journal();
+        // CompileEntry()
+
     }
 }
