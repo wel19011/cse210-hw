@@ -12,7 +12,7 @@ public class Entry
         _prompt = "";
     }
 
-    public Entry(string response, string date, string prompt)
+    public Entry(string date, string prompt, string response)
     {
         _response = response;
         _currentDate = date;
