@@ -9,6 +9,9 @@ class Program
         int select = 0;
         do 
         {
+            Console.WriteLine("Please Select one of the following options: ");
+            Console.WriteLine("1. Write. \n2. Display \n3. Load \n4. Save \n5. Quit");
+            select = int.Parse(Console.ReadLine());
             if (select == 1)
             {
                 Prompt prompt1 = new Prompt();
@@ -19,10 +22,31 @@ class Program
 
                 Journal myJournal = new Journal();
                 myJournal.AddEntry(response1);
-                myJournal.DisplayJournal();
+                
             }
+            else if(select == 2)
+            {
+                // Display the entries
+                Journal DisplayJournal = new Journal();
+                DisplayJournal.DisplayJournal();
+            }
+            else if(select == 3)
+            {
+                // load the journal
+                Console.WriteLine("Load the journal\n");
+            }
+            else if(select == 4)
+            {
+                // save the entries to the file
+                Console.WriteLine("Save the entries to the file\n");
+            }
+            else if(select == 5)
+            {
+                break;
+            }
+
         } while(select != 5);
 
-
+        Console.WriteLine("Thank you for writing in your journal today! ");
     }
 }
