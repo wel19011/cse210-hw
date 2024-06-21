@@ -51,6 +51,9 @@ class Program
 
         } while(select != 5);
 
+
+
         Console.WriteLine("Thank you for writing in your journal today! ");
+        Console.WriteLine("Don't forget to be true to yourself and to God everyday!");
     }
 }

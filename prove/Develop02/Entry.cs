@@ -30,6 +30,7 @@ public class Entry
         _currentDate = GetDate();
         _prompt = prompt;
         Console.WriteLine(prompt);
+        Console.Write("> ");
         _response = Console.ReadLine();
     }
     public override string ToString()
