@@ -6,7 +6,7 @@ public class Entry
     private string _prompt;
 
     public Entry() // creating a method of object `Entry` as a method within class `Entry`, aka a constructor
-    {                                  // this keeps the data private but allows the user to change the variable for the purposes of the program
+    {              // this keeps the data private but allows the user to change the variable for the purposes of the program
         _response = ""; 
         _currentDate = "";
         _prompt = "";
@@ -19,21 +19,11 @@ public class Entry
         _prompt = prompt;
     }
 
-
     public string GetDate()
     {
-        // function that does stuff to get the system date 
-        // Console.WriteLine(DateTime.Now.ToString("d"));
         DateTime currentDate = DateTime.Now;
         return currentDate.ToShortDateString();
     }
-
-    // public string GetResponse()
-    // {
-    //     Console.WriteLine("Enter response here: ");
-    //     _response = Console.ReadLine();
-    //     return _response;
-    // }
 
     public void FillEntry(string prompt)
     {
