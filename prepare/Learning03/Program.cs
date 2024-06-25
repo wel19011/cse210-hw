@@ -16,7 +16,7 @@ class Program
         Console.WriteLine(decimalValue);
 
         Fraction f3 = new Fraction(6,7);
-        f3.GetFractionString();
+        Console.WriteLine(f3.GetFractionString());
         double decimalValue2 = f3.GetDecimalValue();
         Console.WriteLine(decimalValue2);
 
