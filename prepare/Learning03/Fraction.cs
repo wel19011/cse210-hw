@@ -22,7 +22,7 @@ class Fraction
     {
         Console.WriteLine($"Numerator: {_numerator}");
     }
-    public void SetTop(int top)
+    public void SetTop(double top)
     {
         _numerator = top;
     }
@@ -30,16 +30,16 @@ class Fraction
     {
         Console.WriteLine($"Denominator: {_denominator}");
     }
-    public void SetBottom(int bottom)
+    public void SetBottom(double bottom)
     {
         _denominator = bottom;
     }
-    public void GetFractionString()
+    public string GetFractionString()
     {
         string top = _numerator.ToString();
         string bottom = _denominator.ToString();
-        Console.WriteLine($"the fraction is: {top}/{bottom}");
-        // return top;
+        string text = $"the fraction is: {top}/{bottom}";
+        return text;
     }
     public double GetDecimalValue()
     {
