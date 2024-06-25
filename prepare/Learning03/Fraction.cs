@@ -34,10 +34,12 @@ class Fraction
     {
         _denominator = bottom;
     }
-    public string GetFractionString()
+    public void GetFractionString()
     {
         string top = _numerator.ToString();
-        return top;
+        string bottom = _denominator.ToString();
+        Console.WriteLine($"the fraction is: {top}/{bottom}");
+        // return top;
     }
     public double GetDecimalValue()
     {
