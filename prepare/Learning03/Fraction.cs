@@ -5,12 +5,13 @@ class Fraction
 
     public Fraction()
     {
-        _numerator = 0;
-        _denominator = 0;
+        _numerator = 1;
+        _denominator = 1;
     }
     public Fraction(int top)
     {
         _numerator = top;
+        _denominator = 1;
     }
     public Fraction(int top, int bottom)
     {
