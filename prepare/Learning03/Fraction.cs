@@ -1,7 +1,7 @@
 class Fraction
 {
-    private int _numerator;
-    private int _denominator;
+    private double _numerator;
+    private double _denominator;
 
     public Fraction()
     {
@@ -13,7 +13,7 @@ class Fraction
         _numerator = top;
         _denominator = 1;
     }
-    public Fraction(int top, int bottom)
+    public Fraction(double top, double bottom)
     {
         _numerator = top;
         _denominator = bottom;
@@ -43,6 +43,7 @@ class Fraction
     }
     public double GetDecimalValue()
     {
-        return _numerator / _denominator;
+        double fraction = (_numerator / _denominator);
+        return fraction;
     }
 }
