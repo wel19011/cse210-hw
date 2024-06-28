@@ -6,9 +6,9 @@ class Reference
     private int _verse;
     private string _reference;
 
-    public Reference()
+    public Reference(string reference)
     {
-
+        _reference = reference;
     }
     public Reference(string book, int chapter, int verse)
     {

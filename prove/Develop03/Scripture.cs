@@ -19,4 +19,13 @@ class Scripture
     {
         return $"{_reference.GetReferenceString()} {_words[0].GetWord()}";
     }
+    private List<string> FillList(string text)
+    {
+        _verse = text;
+        List<Word> wordsTemp = text.Split(" ").ToList();
+        foreach (Word tempWord in wordsTemp)
+        {
+            _words.Add(tempWord);
+        }
+    }
 }
