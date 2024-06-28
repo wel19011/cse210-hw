@@ -7,25 +7,71 @@ class Scripture
     {
         _reference = r;
         _words = new List<Word>();
-        Word tempWord = new Word(text);
-        _words.Add(tempWord);
+        // Word tempWord = new Word(text);
+        // _words.Add(tempWord);
+        FillList(text);
         // _verse = "John 3:16 - For God so loved the world that He gave His only begotten Son. That whosoever believeth in Him should not perish, but have everlasting life";
     }
     public string GetVerse()
     {
         return _verse;
     }
-    public string GetScripture()
+    private string GetScripture()
     {
         return $"{_reference.GetReferenceString()} {_words[0].GetWord()}";
     }
-    private List<string> FillList(string text)
+    public void DisplayScripture()
     {
-        _verse = text;
-        List<Word> wordsTemp = text.Split(" ").ToList();
-        foreach (Word tempWord in wordsTemp)
+        Console.WriteLine($"{_reference.GetReferenceString()} ");
+        foreach (Word w in _words)
         {
+            if (!w.IsHidden())
+            {
+                Console.Write($"{w.GetWord()} ");
+            }
+            else if (w.IsHidden())
+            {
+                for (int i = 0; i < w.GetWordLength(); i++)
+                {
+                    Console.Write("_");
+                }
+            }
+        }
+    }
+    private void FillList(string text2)
+    {
+        // _verse = text;
+        string[] wordsTemp = text2.Split(" ");
+        foreach (string w in wordsTemp)
+        {
+            Word tempWord = new Word(w);
             _words.Add(tempWord);
         }
+    }
+    public void HideSomeWords()
+    {
+        int count = 0;
+        while (count < 3)
+        // for (int i = 0; i < 3; i++)
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(0, _words.Count());
+            if (!_words[randomNumber].IsHidden())
+            {
+                _words[randomNumber].HideWord();
+                count++;
+            }
+        }
+    }
+    public bool AllWordsHidden()
+    {
+        foreach (Word w in _words)
+        {
+            if (!w.IsHidden())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

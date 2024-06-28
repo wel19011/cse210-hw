@@ -20,4 +20,8 @@ class Word
     {
         return _word;
     }
+    public int GetWordLength()
+    {
+        return _word.Length;
+    }
 }
