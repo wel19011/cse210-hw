@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+
 class Words
 {
     private List<string> _words;
@@ -19,13 +21,15 @@ class Words
         string reference = _words[0];
         return reference;
     }
-    private List<string> ParseReferenceOnSpace(string reference)
-    {
-        List<string> refList = reference.Split(" ").ToList();
-        // foreach (string part in refList) //under construction...
-        // {
-        //     if (int.Parse(refList[0]) = true)
-        // }
-        return refList;
-    }
+    // public List<int> ChooseRandomWords(List<string> words)
+    // {
+    //     int range = words.Count();
+    //     for (int i = 0; i < 3; i++) // I'm trying to randomly select three numbers out of a list of however many words there are in the list, storing them iteratively into a list or array that will then be used to compare to the indeces of the list of words from the verse
+    //     {
+    //         RandomNumberGenerator j = new RandomNumberGenerator();
+
+    //         int number1 = 
+    //     }
+    //     return _hiddenWords;
+    // }
 }

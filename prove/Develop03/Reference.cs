@@ -56,4 +56,8 @@ class Reference
             _reference = $"{number} {book} {chapter}:{verse}";
         return _reference;
     }
+    public string GetReferenceString()
+    {
+        return $"{_book} {_chapter}:{_verse}";
+    }
 }
