@@ -38,12 +38,14 @@ class Program
         //     Console.WriteLine("");
         // }
 
+        string verse = "And it came to pass that I, Nephi, said unto my father: I will go and do the things which the Lord hath commanded, for I know that the Lord giveth no commandments unto the children of men, save he shall prepare a way for them that they may accomplish the thing which he commandeth them.";
+
         Console.Clear();
         Console.WriteLine("Welcome to the Scripture memorization program!");
         Reference ref1 = new Reference("1 Nephi", 3,7);
         // Console.WriteLine(ref1.GetReferenceString());
         Console.Write("Input 'q' to quit, 'enter' to continue");
-        Scripture scripture1 = new Scripture(ref1, "And it came to pass that I Nephi said unto my Father, I will go and do the things that the Lord has commanded.");
+        Scripture scripture1 = new Scripture(ref1, verse);
         scripture1.DisplayScripture();
         string input = Console.ReadLine();
         while (input != "q" & !scripture1.AllWordsHidden())

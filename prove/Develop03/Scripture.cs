@@ -7,9 +7,9 @@ class Scripture
     {
         _reference = r;
         _words = new List<Word>();
+        FillList(text);
         // Word tempWord = new Word(text);
         // _words.Add(tempWord);
-        FillList(text);
         // _verse = "John 3:16 - For God so loved the world that He gave His only begotten Son. That whosoever believeth in Him should not perish, but have everlasting life";
     }
     public string GetVerse()
@@ -35,6 +35,7 @@ class Scripture
                 {
                     Console.Write("_");
                 }
+                Console.Write(" ");
             }
         }
     }
