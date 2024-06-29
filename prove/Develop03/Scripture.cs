@@ -3,6 +3,10 @@ class Scripture
     private string _verse;
     private Reference _reference;
     private List<Word> _words;
+    public Scripture()
+    {
+        _verse = ChooseRandomScripture();
+    }
     public Scripture(Reference r, string text)
     {
         _reference = r;
@@ -74,5 +78,24 @@ class Scripture
             }
         }
         return true;
+    }
+
+    private string [] ReadScripturesFile()
+    {
+        string [] lines = System.IO.File.ReadAllLines("scriptures.txt");
+        return lines;
+    }
+    private string ChooseRandomScripture()
+    {
+        string [] lines = ReadScripturesFile();
+        int countScriptures = 0;
+        foreach (string i in lines)
+        {
+            countScriptures ++;
+        }
+        Random randomScripture = new Random();
+        int choiceIndex = randomScripture.Next(countScriptures);
+        string verse = lines[choiceIndex];
+        return verse;
     }
 }
