@@ -5,7 +5,6 @@ class Program
     static void Main(string[] args)
     {
         // Console.WriteLine("Hello Develop03 World!");
-        Console.WriteLine("Welcome to the Scripture memorization program!");
 
         // Scripture s = new Scripture();
         // string verse = s.GetVerse();
@@ -39,13 +38,14 @@ class Program
         //     Console.WriteLine("");
         // }
 
+        Console.Clear();
+        Console.WriteLine("Welcome to the Scripture memorization program!");
         Reference ref1 = new Reference("1 Nephi", 3,7);
         // Console.WriteLine(ref1.GetReferenceString());
         Console.Write("Input 'q' to quit, 'enter' to continue");
-        string input = Console.ReadLine();
         Scripture scripture1 = new Scripture(ref1, "And it came to pass that I Nephi said unto my Father, I will go and do the things that the Lord has commanded.");
-        Console.Clear();
         scripture1.DisplayScripture();
+        string input = Console.ReadLine();
         while (input != "q" & !scripture1.AllWordsHidden())
         {
             scripture1.HideSomeWords();
