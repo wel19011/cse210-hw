@@ -3,10 +3,15 @@ class Scripture
     private string _verse;
     private Reference _reference;
     private List<Word> _words;
-    public Scripture()
-    {
-        _verse = ChooseRandomScripture();
-    }
+    // public Scripture()
+    // {
+    //     _verse = ChooseRandomScripture();
+    //     string myReference = GetReference(_verse);
+    //     Reference r = new Reference(myReference);
+    //     // r.GetReferenceString();
+
+    //     // _reference = r.GetReferenceString();
+    // }
     public Scripture(Reference r, string text)
     {
         _reference = r;
@@ -56,7 +61,7 @@ class Scripture
     public void HideSomeWords()
     {
         int count = 0;
-        while (count < 3)
+        while (count < 3 && !AllWordsHidden())
         // for (int i = 0; i < 3; i++)
         {
             Random random = new Random();
@@ -80,22 +85,34 @@ class Scripture
         return true;
     }
 
-    private string [] ReadScripturesFile()
-    {
-        string [] lines = System.IO.File.ReadAllLines("scriptures.txt");
-        return lines;
-    }
-    private string ChooseRandomScripture()
-    {
-        string [] lines = ReadScripturesFile();
-        int countScriptures = 0;
-        foreach (string i in lines)
-        {
-            countScriptures ++;
-        }
-        Random randomScripture = new Random();
-        int choiceIndex = randomScripture.Next(countScriptures);
-        string verse = lines[choiceIndex];
-        return verse;
-    }
+    // private string [] ReadScripturesFile()
+    // {
+    //     string [] lines = System.IO.File.ReadAllLines("scriptures.txt");
+    //     return lines;
+    // }
+    // private string ChooseRandomScripture()
+    // {
+    //     string [] lines = ReadScripturesFile();
+    //     int countScriptures = 0;
+    //     foreach (string i in lines)
+    //     {
+    //         countScriptures ++;
+    //     }
+    //     Random randomScripture = new Random();
+    //     int choiceIndex = randomScripture.Next(countScriptures);
+    //     string verse = lines[choiceIndex];
+    //     return verse;
+    // }
+    // public string GetReference(string verse)
+    // {
+    //     List<string> wholeVerse = verse.Split("--").ToList();
+    //     string reference = wholeVerse[0];
+    //     return reference;
+    // }
+    // public string GetWordsFromVerse()
+    // {
+    //     List<string> wholeVerse = _verse.Split("--").ToList();
+    //     string wordsFromVerse = wholeVerse[1];
+    //     return wordsFromVerse;
+    // }
 }

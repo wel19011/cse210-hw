@@ -16,19 +16,18 @@ class Reference
         _chapter = chapter;
         _verse = verse;
     }
-    public string ParseReference(string verse) // receives the string containing the reference and verse and returns the reference as a formated string
+    public void ParseReference() // receives the string containing the reference and verse and returns the reference as a formated string
     {
-        Words w = new Words();
-        string reference = w.GetReference(verse);               // selects the reference from the verse and returns it as a string
-        List<string> refList = reference.Split(" ").ToList();   // splits reference on the spaces so Jacob 4:15 goes to [`Jacob`, `4:15`]
+        // string reference = GetReference(verse);               // selects the reference from the verse and returns it as a string
+        List<string> refList = _reference.Split(" ").ToList();   // splits reference on the spaces so Jacob 4:15 goes to [`Jacob`, `4:15`]
 
         if (refList.Count == 2)                                 // accounts for scriptures that have book numbers. Ie 2 Nephi, 1 Peter, etc.
         {
             _book = refList[0];
             string nums = refList[1];
-            List<string> numbers = HandleNumbers(nums);
-            _chapter = nums[0];
-            _verse = nums[1];
+            List<int> numbers = HandleNumbers(nums);
+            _chapter = numbers[0];
+            _verse = numbers[1];
             _reference = $"{_book} {_chapter}:{_verse}";
         }
         else if (refList.Count == 3)
@@ -36,17 +35,23 @@ class Reference
             _number = int.Parse(refList[0]);
             _book = refList[1];
             string nums = refList[1];
-            List<string> numbers = HandleNumbers(nums);
-            _chapter = nums[0];
-            _verse = nums[1];
-            _reference = CombineParts(_book, _chapter, _verse, _number);
+            List<int> numbers = HandleNumbers(nums);
+            _chapter = numbers[0];
+            _verse = numbers[1];
+            // _reference = CombineParts(_book, _chapter, _verse, _number);
         }
-        return _reference;
+        // return _reference;
     }
-    private List<string> HandleNumbers(string combinedNumbers)
+    private List<int> HandleNumbers(string combinedNumbers)
     {
         List<string> numbers = combinedNumbers.Split(":").ToList();
-        return numbers;
+        List<int> numbersInt = new List<int>();
+        foreach (string number in numbers)
+        {
+            int numberInt = int.Parse(number);
+            numbersInt.Add(numberInt);
+        }
+        return numbersInt;
     }
     private string CombineParts(string book, int chapter, int verse, int number = 0)
     {
@@ -58,6 +63,7 @@ class Reference
     }
     public string GetReferenceString()
     {
+        // ParseReference();
         return $"{_book} {_chapter}:{_verse}";
     }
 }
