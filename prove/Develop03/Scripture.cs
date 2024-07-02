@@ -3,23 +3,11 @@ class Scripture
     private string _verse;
     private Reference _reference;
     private List<Word> _words;
-    // public Scripture()
-    // {
-    //     _verse = ChooseRandomScripture();
-    //     string myReference = GetReference(_verse);
-    //     Reference r = new Reference(myReference);
-    //     // r.GetReferenceString();
-
-    //     // _reference = r.GetReferenceString();
-    // }
     public Scripture(Reference r, string text)
     {
         _reference = r;
         _words = new List<Word>();
         FillList(text);
-        // Word tempWord = new Word(text);
-        // _words.Add(tempWord);
-        // _verse = "John 3:16 - For God so loved the world that He gave His only begotten Son. That whosoever believeth in Him should not perish, but have everlasting life";
     }
     public string GetVerse()
     {
