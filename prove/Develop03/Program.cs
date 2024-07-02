@@ -26,9 +26,19 @@ class Program
         string name = wholeVerse[0];
         int chapter = int.Parse(wholeVerse[1]);
         int v = int.Parse(wholeVerse[2]);
-        Reference reference = new Reference(name, chapter, v);
-        Scripture s = new Scripture(reference, wholeVerse[3]);
-        return s;
+        if (wholeVerse[3].Length == 1 || wholeVerse[3].Length == 2)
+        {
+            int lv = int.Parse(wholeVerse[3]);
+            Reference reference2 = new Reference(name, chapter, v, lv);
+            Scripture s2 = new Scripture(reference2, wholeVerse[4]);
+            return s2;
+        }
+        else
+        {
+            Reference reference = new Reference(name, chapter, v);
+            Scripture s = new Scripture(reference, wholeVerse[3]);
+            return s;
+        }
     }
     // public string GetWordsFromVerse()
     // {

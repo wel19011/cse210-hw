@@ -4,6 +4,7 @@ class Reference
     private string _book;
     private int _chapter;
     private int _verse;
+    private int _lastVerse;
     private string _reference;
 
     public Reference(string reference)
@@ -15,6 +16,13 @@ class Reference
         _book = book;
         _chapter = chapter;
         _verse = verse;
+    }
+    public Reference(string book, int chapter, int firstVerse, int lastVerse)
+    {
+        _book = book;
+        _chapter = chapter;
+        _verse = firstVerse;
+        _lastVerse = lastVerse;
     }
     public void ParseReference() // receives the string containing the reference and verse and returns the reference as a formated string
     {
