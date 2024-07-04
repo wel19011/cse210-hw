@@ -7,7 +7,7 @@ class Program
         int response = 0;
         while (response < 1 || response > 4)
         {
-            // Console.Clear();
+            Console.Clear();
             Console.WriteLine("Menu Options: ");
             Console.WriteLine("1. Breathing Activity");
             Console.WriteLine("2. Reflection Activity");
@@ -27,5 +27,8 @@ class Program
 
         int response = DisplayMenu();
         Console.WriteLine(response);
+
+        Activity act2 = new Activity("Sleep", "breath lots", 20, "Thank you for participating");
+        act2.Animation();
     }
 }

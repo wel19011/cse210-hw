@@ -24,9 +24,14 @@ public class Activity
     {
         // Functions to time the activity
     }
-    public void Spinner()
+    public void Animation()
     {
         // for loop that iterates through four symbols (/-\|)
-        
+        for (int i = 0; i < 8; i++)
+        {
+            Console.Write($"{i}");
+            Thread.Sleep(500);
+            Console.Write("\b \b");
+        }
     }
 }
