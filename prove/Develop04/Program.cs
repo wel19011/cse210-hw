@@ -14,10 +14,6 @@ class Program
             Console.WriteLine("3. Listing Activity");
             Console.WriteLine("4. Quit ");
             response = int.Parse(Console.ReadLine());
-            if (response == 4)
-            {
-                break; 
-            }
         }   
             return response;
     }
@@ -39,9 +35,16 @@ class Program
         if (response == 1)
         {
             // Breating activity
-            BreathingActivity ba = new BreathingActivity("Breathing", "This activity will teach you how to breath", 0, "Thank you for participating", "prompt");
+            string name = "Breathing";
+            string description = "This activity will teach you how to breath underwater.";
+            int duration = 0;
+            string endingMessage = "Thank you for participating in the activity";
+            string prompt = "Breath in.... Breath out";
+            BreathingActivity ba = new BreathingActivity(name, description, duration, endingMessage, prompt);
+            // BreathingActivity ba = new BreathingActivity("Breathing", "This activity will teach you how to breath", 0, "Thank you for participating", "prompt");
             ba.DisplayWelcome();
-            ba.Timer();
+            // ba.Timer();
+            ba.GiveInstructions();
         }
         else if (response == 2)
         {

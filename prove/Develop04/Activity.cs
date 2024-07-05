@@ -20,6 +20,10 @@ public class Activity
     {
         return _activityName;
     }
+    protected int GetDuration()
+    {
+        return _duration;
+    }
     public int DisplayWelcome()
     {
         Console.WriteLine($"Welcome to the {_activityName} Activity.");
@@ -34,7 +38,7 @@ public class Activity
         DateTime currentTime = DateTime.Now;
         DateTime futureTime = currentTime.AddSeconds(_duration);
 
-            Console.Write("Waiting...");
+        // Console.Write("Waiting...");
         while (DateTime.Now < futureTime)
         {
             Thread.Sleep(1000);
@@ -43,9 +47,21 @@ public class Activity
         Console.WriteLine("Finished!");
         // if (futureTime < currentTime)
     }
+    public void PauseActivity(int seconds)
+    {
+        DateTime currentTime = DateTime.Now;
+        DateTime futureTime = currentTime.AddSeconds(seconds);
+
+        // Console.Write("Waiting...");
+        while (DateTime.Now < futureTime)
+        {
+            Thread.Sleep(1000);
+            Console.Write(".");
+        }
+    }
     public void Animation()
     {
-        // counts down from 8
+        // count down
         for (int i = 5; i > 0; i--)
         {
             Console.Write($"{i}");
@@ -53,4 +69,5 @@ public class Activity
             Console.Write("\b \b");
         }
     }
+
 }
