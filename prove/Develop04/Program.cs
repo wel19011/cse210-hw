@@ -54,7 +54,9 @@ class Program
                 ReflectionActivity ra = new ReflectionActivity(name, description);
                 ra.DisplayWelcome();
                 string prompt = ra.ChoosePrompt();
-                Console.WriteLine(prompt);
+                string question = ra.ChooseQuestion();
+                Console.WriteLine(prompt + question);
+                ra.DisplayEndingMessage();
             }
             else if (response == 3)
             {

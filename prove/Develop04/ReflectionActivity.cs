@@ -20,6 +20,15 @@ public class ReflectionActivity : Activity
         _prompt = prompts[promptIndex];
         return _prompt;
     }
+    public string ChooseQuestion()
+    {
+        List<string> questions = GetReflectionQuestions();
+        int listLength = GetReflectionQuestions().Count;
+        Random random = new Random();
+        int questionIndex = random.Next(listLength);
+        _question = questions[questionIndex];
+        return _question;
+    }
     private List<string> GetReflectionPrompts()
     {
         _reflectionPrompts.Add("Think of a time when you stood up for someone else");
