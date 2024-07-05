@@ -30,28 +30,31 @@ class Program
         // Activity act2 = new Activity("Sleep", "breath lots", 5, "Thank you for participating");
         // // act2.Animation();
         // act2.Timer();
-        while (DisplayMenu() != 4)
+        int response = 0;
+        // while ((response = DisplayMenu()) != 4)
+        while (response != 4)
         {
-            int response = DisplayMenu();
+            response = DisplayMenu();
 
             if (response == 1)
             {
                 // Breating activity
                 string name = "Breathing";
-                string description = "This activity will teach you how to breath underwater.";
-                int duration = 0;
-                string endingMessage = "Thank you for participating in the activity";
-                string prompt = "Breath in.... Breath out";
-                BreathingActivity ba = new BreathingActivity(name, description, duration, endingMessage, prompt);
-                // BreathingActivity ba = new BreathingActivity("Breathing", "This activity will teach you how to breath", 0, "Thank you for participating", "prompt");
+                string description = "This activity will help you to calm and focus your mind. Prepare to breath deeply.";
+                BreathingActivity ba = new BreathingActivity(name, description);
                 ba.DisplayWelcome();
-                // ba.Timer();
                 ba.GiveInstructions();
                 ba.DisplayEndingMessage();
             }
             else if (response == 2)
             {
                 // Reflection activity
+                string name = "Reflection";
+                string description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+                ReflectionActivity ra = new ReflectionActivity(name, description);
+                ra.DisplayWelcome();
+                string prompt = ra.ChoosePrompt();
+                Console.WriteLine(prompt);
             }
             else if (response == 3)
             {

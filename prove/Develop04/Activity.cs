@@ -3,15 +3,14 @@ public class Activity
     private string _activityName;
     private string _description;
     private int _duration;
-    private string _endingMessage;
 
-    public Activity(string activityName, string description, int duration, string endingMessage)
+
+    public Activity(string activityName, string description)
     {
         _activityName = activityName;
         _description = description;
-        _duration = duration;
-        _endingMessage = endingMessage;
     }
+
     public string GetDescription()
     {
         return _description;
@@ -37,6 +36,8 @@ public class Activity
     {
         Console.WriteLine();
         Console.WriteLine("Well done!");
+        Thread.Sleep(3000);
+        Console.WriteLine($"You have completed a {_duration} second {_activityName} Activity!");
         Thread.Sleep(3000);
     }
     public bool Timer()
