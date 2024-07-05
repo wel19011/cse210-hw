@@ -25,38 +25,42 @@ class Program
         // Console.WriteLine(act1.GetActivityName());
         // Console.WriteLine(act1.GetDescription());
 
-        int response = DisplayMenu();
         // Console.WriteLine(response);
 
         // Activity act2 = new Activity("Sleep", "breath lots", 5, "Thank you for participating");
         // // act2.Animation();
         // act2.Timer();
+        while (DisplayMenu() != 4)
+        {
+            int response = DisplayMenu();
 
-        if (response == 1)
-        {
-            // Breating activity
-            string name = "Breathing";
-            string description = "This activity will teach you how to breath underwater.";
-            int duration = 0;
-            string endingMessage = "Thank you for participating in the activity";
-            string prompt = "Breath in.... Breath out";
-            BreathingActivity ba = new BreathingActivity(name, description, duration, endingMessage, prompt);
-            // BreathingActivity ba = new BreathingActivity("Breathing", "This activity will teach you how to breath", 0, "Thank you for participating", "prompt");
-            ba.DisplayWelcome();
-            // ba.Timer();
-            ba.GiveInstructions();
-        }
-        else if (response == 2)
-        {
-            // Reflection activity
-        }
-        else if (response == 3)
-        {
-            // Lising Activity
-        }
-        else if (response == 4)
-        {
-            // Display goodbye message
+            if (response == 1)
+            {
+                // Breating activity
+                string name = "Breathing";
+                string description = "This activity will teach you how to breath underwater.";
+                int duration = 0;
+                string endingMessage = "Thank you for participating in the activity";
+                string prompt = "Breath in.... Breath out";
+                BreathingActivity ba = new BreathingActivity(name, description, duration, endingMessage, prompt);
+                // BreathingActivity ba = new BreathingActivity("Breathing", "This activity will teach you how to breath", 0, "Thank you for participating", "prompt");
+                ba.DisplayWelcome();
+                // ba.Timer();
+                ba.GiveInstructions();
+                ba.DisplayEndingMessage();
+            }
+            else if (response == 2)
+            {
+                // Reflection activity
+            }
+            else if (response == 3)
+            {
+                // Lising Activity
+            }
+            else if (response == 4)
+            {
+                // Display goodbye message
+            }
         }
     }
 }
