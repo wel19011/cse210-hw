@@ -14,7 +14,12 @@ public class ReflectionActivity : Activity
         Console.WriteLine(ChoosePrompt());
         PauseActivity(3); // pause for n number of seconds
         Console.WriteLine();
-        Console.WriteLine(ChooseQuestion());
+        while (!Timer())
+        {
+            Console.WriteLine(ChooseQuestion());
+            PauseActivity(5);
+            Console.WriteLine();
+        }
     }
     public string ChoosePrompt()
     {

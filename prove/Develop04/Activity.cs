@@ -3,6 +3,7 @@ public class Activity
     private string _activityName;
     private string _description;
     private int _duration;
+    private DateTime _futureTime;
 
 
     public Activity(string activityName, string description)
@@ -31,11 +32,14 @@ public class Activity
         Console.Write("How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
 
+        DateTime currentTime = DateTime.Now;
+        _futureTime = currentTime.AddSeconds(_duration);
+
         Console.Clear();
         Console.Write("Get Ready.");
         PauseActivity(3);
         Console.WriteLine();
-        
+
         return _duration;
     }
     public void DisplayEndingMessage()
@@ -49,19 +53,26 @@ public class Activity
     public bool Timer()
     {
         // Functions to time the activity
-        DateTime currentTime = DateTime.Now;
-        DateTime futureTime = currentTime.AddSeconds(_duration);
+        // DateTime currentTime = DateTime.Now;
+        // DateTime futureTime = currentTime.AddSeconds(_duration);
 
         // Console.Write("Waiting...");
-        while (DateTime.Now < futureTime)
-        {
-            Thread.Sleep(1000);
-            // Console.Write(".");
-            return false;
-        }
+        // while (DateTime.Now < futureTime)
+        // {
+        //     Thread.Sleep(1000);
+        //     // Console.Write(".");
+        //     return false;
+        // }
         // Console.WriteLine("Finished!");
         // if (futureTime < currentTime)
-        return true;
+        if (DateTime.Now < _futureTime)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
     public void PauseActivity(int seconds)
     {
