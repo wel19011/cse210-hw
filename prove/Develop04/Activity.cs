@@ -30,6 +30,12 @@ public class Activity
         Console.WriteLine($"{_description}");
         Console.Write("How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
+
+        Console.Clear();
+        Console.Write("Get Ready.");
+        PauseActivity(3);
+        Console.WriteLine();
+        
         return _duration;
     }
     public void DisplayEndingMessage()

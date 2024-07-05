@@ -10,9 +10,9 @@ public class BreathingActivity : Activity
     }
     public void GiveInstructions()
     {
-        Console.Clear();
-        Console.Write("Get Ready.");
-        PauseActivity(3);
+        // Console.Clear();
+        // Console.Write("Get Ready.");
+        // PauseActivity(3);
 
         int duration = GetDuration();
         int modDuration = duration / 10; // maybe add a try catch block to inform the user that they need a larger number if they choose one less than 10

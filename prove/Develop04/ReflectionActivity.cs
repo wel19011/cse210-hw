@@ -1,6 +1,5 @@
 public class ReflectionActivity : Activity
 {
-    // private string _someAttribute;
     private string _prompt;
     private string _question;
     private List<string> _reflectionPrompts;
@@ -9,6 +8,13 @@ public class ReflectionActivity : Activity
     {
         _reflectionPrompts = new List<string>();
         _reflectionQuestions = new List<string>();
+    }
+    public void DisplayReflection()
+    {
+        Console.WriteLine(ChoosePrompt());
+        PauseActivity(3); // pause for n number of seconds
+        Console.WriteLine();
+        Console.WriteLine(ChooseQuestion());
     }
     public string ChoosePrompt()
     {
