@@ -50,7 +50,7 @@ class Program
             {
                 // Reflection activity
                 string name = "Reflection";
-                string description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+                string description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life. \nIf you would prefer, you're invited to get out a paper and pencil and record your thoughts.";
                 ReflectionActivity ra = new ReflectionActivity(name, description);
                 ra.DisplayWelcome();
                 ra.DisplayReflection();
@@ -59,6 +59,12 @@ class Program
             else if (response == 3)
             {
                 // Lising Activity
+                string name = "Listing";
+                string description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area. \nYou are Welcome to use a paper and pencil to record some of your thoughts.";
+                ListingActivity la = new ListingActivity(name, description);
+                la.DisplayWelcome();
+                Console.WriteLine(la.ChoosePrompt());
+                la.DisplayEndingMessage();
             }
             else if (response == 4)
             {

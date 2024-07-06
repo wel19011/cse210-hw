@@ -14,11 +14,12 @@ public class BreathingActivity : Activity
         // Console.Write("Get Ready.");
         // PauseActivity(3);
 
-        int duration = GetDuration();
-        int modDuration = duration / 10; // maybe add a try catch block to inform the user that they need a larger number if they choose one less than 10
+        // int duration = GetDuration();
+        // int modDuration = duration / 10; // maybe add a try catch block to inform the user that they need a larger number if they choose one less than 10
         // bool timesUp = Timer();
         // while (!timesUp)
-        for (int i = 0; i < modDuration; i++)
+        // for (int i = 0; i < modDuration; i++)
+        while (!Timer())
         {
             Console.WriteLine();
             Console.Write("Breathe in...");
@@ -26,7 +27,6 @@ public class BreathingActivity : Activity
             Console.WriteLine();
             Console.Write("Breathe out...");
             Animation();
-            // timesUp = Timer();
         }
     }
 }

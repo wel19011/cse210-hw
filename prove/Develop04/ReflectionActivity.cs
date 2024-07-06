@@ -17,7 +17,7 @@ public class ReflectionActivity : Activity
         while (!Timer())
         {
             Console.WriteLine(ChooseQuestion());
-            PauseActivity(5);
+            PauseActivity(10);
             Console.WriteLine();
         }
     }

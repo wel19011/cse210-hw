@@ -48,7 +48,7 @@ public class Activity
         Console.WriteLine("Well done!");
         Thread.Sleep(3000);
         Console.WriteLine($"You have completed a {_duration} second {_activityName} Activity!");
-        Thread.Sleep(3000);
+        Thread.Sleep(4000);
     }
     public bool Timer()
     {
