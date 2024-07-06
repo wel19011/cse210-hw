@@ -5,6 +5,24 @@ public class ListingActivity : Activity
     public ListingActivity(string name, string description) : base(name, description)
     {
         _listingPrompts = new List<string>();
+        _prompt = ChoosePrompt();
+    }
+    public void DisplayListing()
+    {
+        Console.WriteLine("List as many responses as you can to the following prompt:");
+        Console.WriteLine($"----- {_prompt} -----");
+        PauseActivity(6);
+        // Console.Write("Press Enter when you are ready to begin:");
+        // Console.Read();
+        int responses = 0;
+
+        while (!Timer())
+        {
+            Console.Write(">");
+            string response = Console.ReadLine();
+            responses ++;
+        }
+        Console.WriteLine($"\nWay to go! You listed {responses} responses in {GetDuration()} seconds!");
     }
     public string ChoosePrompt()
     {

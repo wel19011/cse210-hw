@@ -13,7 +13,14 @@ class Program
             Console.WriteLine("2. Reflection Activity");
             Console.WriteLine("3. Listing Activity");
             Console.WriteLine("4. Quit ");
-            response = int.Parse(Console.ReadLine());
+            try
+            {
+                response = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine($"Input Error: {ex}");
+            }
         }   
             return response;
     }
@@ -60,10 +67,10 @@ class Program
             {
                 // Lising Activity
                 string name = "Listing";
-                string description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area. \nYou are Welcome to use a paper and pencil to record some of your thoughts.";
+                string description = "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area. \nAccording to your preference, you are welcome to use a paper and pencil to record some of your thoughts.";
                 ListingActivity la = new ListingActivity(name, description);
                 la.DisplayWelcome();
-                Console.WriteLine(la.ChoosePrompt());
+                la.DisplayListing();
                 la.DisplayEndingMessage();
             }
             else if (response == 4)

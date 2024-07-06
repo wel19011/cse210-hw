@@ -32,14 +32,15 @@ public class Activity
         Console.Write("How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
 
-        DateTime currentTime = DateTime.Now;
-        _futureTime = currentTime.AddSeconds(_duration);
 
         Console.Clear();
         Console.Write("Get Ready.");
         PauseActivity(3);
         Console.WriteLine();
 
+        DateTime currentTime = DateTime.Now;
+        _futureTime = currentTime.AddSeconds(_duration);
+        
         return _duration;
     }
     public void DisplayEndingMessage()
