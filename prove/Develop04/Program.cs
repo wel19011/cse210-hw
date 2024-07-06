@@ -76,6 +76,9 @@ class Program
             else if (response == 4)
             {
                 // Display goodbye message
+                Console.Clear();
+                Console.WriteLine("Thank you for taking time for Mindfulness Today. \nHave a wonderful rest of your day!");
+                Console.WriteLine("\n");
             }
         }
     }
