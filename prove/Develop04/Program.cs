@@ -28,17 +28,7 @@ class Program
     {
         Console.WriteLine("Hello Develop04 World!");
 
-        // Activity act1 = new Activity("Essay", "Write 10 pages about the American Revolution", 10, "Thank you for completing your assignment");
-        // Console.WriteLine(act1.GetActivityName());
-        // Console.WriteLine(act1.GetDescription());
-
-        // Console.WriteLine(response);
-
-        // Activity act2 = new Activity("Sleep", "breath lots", 5, "Thank you for participating");
-        // // act2.Animation();
-        // act2.Timer();
         int response = 0;
-        // while ((response = DisplayMenu()) != 4)
         while (response != 4)
         {
             response = DisplayMenu();
@@ -77,7 +67,9 @@ class Program
             {
                 // Display goodbye message
                 Console.Clear();
-                Console.WriteLine("Thank you for taking time for Mindfulness Today. \nHave a wonderful rest of your day!");
+                Console.WriteLine("Thank you for taking time for Mindfulness Today.");
+                Thread.Sleep(3000);
+                Console.WriteLine("\nHave a wonderful rest of your day!");
                 Console.WriteLine("\n");
             }
         }
