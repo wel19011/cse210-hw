@@ -1,6 +1,6 @@
 class Goals 
 {
-    private List<Goal> _goals;
+    private List<Goal> _goals = new List<Goal>();
 
     public void SaveGoals()
     {
@@ -14,7 +14,11 @@ class Goals
     {
         foreach (Goal g in _goals)
         {
-            Console.WriteLine(g);
+            Console.WriteLine($"{g} - {g.GetGoal()}");
         }
+    }
+    public void AddGoal(Goal newGoal)
+    {
+        _goals.Add(newGoal);
     }
 }

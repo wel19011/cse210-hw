@@ -21,5 +21,14 @@ class Program
         {
             g.DisplayGoal();
         }
+
+        Console.Write("Add your Goal");
+        string tempGoalString = Console.ReadLine();
+        SimpleGoal sg2 = new SimpleGoal();
+        sg2.SetGoal(tempGoalString);
+        Goals goals1 = new Goals();
+        goals1.AddGoal(sg2);
+
+        goals1.DisplayGoals();
     }
 }
