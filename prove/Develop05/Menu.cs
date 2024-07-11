@@ -1,9 +1,9 @@
 class Menu
 {
+    Goals goals = new Goals();
     public int DisplayMainMenu()
     {
         int response = 0;
-        Goals goals = new Goals();
 
         while (response < 1 || response > 6)
         {
@@ -64,9 +64,10 @@ class Menu
                 // Simple goal
                 Console.Write("What is the name of your goal? ");
                 string goal = Console.ReadLine();
-                Console.Write("How many points is this goal worth?");
+                Console.Write("How many points is this goal worth? ");
                 int points = int.Parse(Console.ReadLine());
                 SimpleGoal simpleGoal = new SimpleGoal(goal, points);
+                goals.AddGoal(simpleGoal);
             }
             else if (goalChoice == 2)
             {

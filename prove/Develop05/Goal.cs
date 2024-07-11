@@ -13,6 +13,10 @@ abstract class Goal
     {
         _points = points;
     }
+    public int GetPoints()
+    {
+        return _points;
+    }
     public string GetGoal()
     {
         return _goal;

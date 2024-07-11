@@ -6,7 +6,7 @@ class Goals
 
     public int GetTotalPoints()
     {
-        
+
         return _totalPoints;
     }
     public void SaveGoals()
@@ -21,7 +21,8 @@ class Goals
     {
         foreach (Goal g in _goals)
         {
-            Console.WriteLine($"{g} - {g.GetGoal()}");
+            // Console.WriteLine($"{g.DisplayGoal()}");
+            g.DisplayGoal();
         }
     }
     public void AddGoal(Goal newGoal)

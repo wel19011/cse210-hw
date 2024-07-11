@@ -7,6 +7,6 @@ class SimpleGoal : Goal
     }
     public override void DisplayGoal()
     {
-        Console.WriteLine($"{GetGoal()}");
+        Console.WriteLine($"{GetGoal()} -- {GetPoints()} points");
     }
 }
