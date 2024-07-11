@@ -32,10 +32,8 @@ class Program
         // goals1.DisplayGoals();
 
         Menu m = new Menu();
-        int response = m.DisplayMainMenu();
-        if (response == 1)
-        {
-            int goalChoice = m.DisplaySubMenu();
-        }
+        // int response = 
+        m.DisplayMainMenu();
+
     }
 }
