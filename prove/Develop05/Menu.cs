@@ -58,6 +58,24 @@ class Menu
             {
                 Console.WriteLine($"Format Exception: {fe} \nPease enter the correct format to choose a type of goal.\n");
             }
+
+            if (goalChoice == 1)
+            {
+                // Simple goal
+                Console.Write("What is the name of your goal? ");
+                string goal = Console.ReadLine();
+                Console.Write("How many points is this goal worth?");
+                int points = int.Parse(Console.ReadLine());
+                SimpleGoal simpleGoal = new SimpleGoal(goal, points);
+            }
+            else if (goalChoice == 2)
+            {
+                // Eternal Goal
+            }
+            else if (goalChoice == 3)
+            {
+                // Checklist Goal
+            }
         }
         return goalChoice;
     }

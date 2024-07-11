@@ -9,6 +9,10 @@ abstract class Goal
     {
         _goal = newGoal;
     }
+    public void SetPoints(int points)
+    {
+        _points = points;
+    }
     public string GetGoal()
     {
         return _goal;

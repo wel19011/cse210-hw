@@ -1,7 +1,12 @@
 class SimpleGoal : Goal
 {
+    public SimpleGoal(string goal, int points)
+    {
+        SetGoal(goal);
+        SetPoints(points);
+    }
     public override void DisplayGoal()
     {
-        Console.WriteLine("This is a simple goal");
+        Console.WriteLine($"{GetGoal()}");
     }
 }
