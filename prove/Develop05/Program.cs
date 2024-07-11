@@ -1,4 +1,5 @@
 using System;
+using System.Net;
 
 class Program
 {
@@ -32,8 +33,12 @@ class Program
         // goals1.DisplayGoals();
 
         Menu m = new Menu();
-        // int response = 
-        m.DisplayMainMenu();
+        
+        int response = 0;
+        while (response != 6)
+        {
+            response = m.DisplayMainMenu();
+        }
 
     }
 }

@@ -1,7 +1,14 @@
 class Goals 
 {
     private List<Goal> _goals = new List<Goal>();
+    private int _totalPoints;
 
+
+    public int GetTotalPoints()
+    {
+        
+        return _totalPoints;
+    }
     public void SaveGoals()
     {
         // logic to write to a file

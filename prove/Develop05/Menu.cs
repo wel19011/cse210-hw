@@ -1,14 +1,17 @@
 class Menu
 {
-    public void DisplayMainMenu()
+    public int DisplayMainMenu()
     {
         int response = 0;
+        Goals goals = new Goals();
+
         while (response < 1 || response > 6)
         {
             Console.WriteLine("Menu Options: ");
             Console.WriteLine("1. Create New Goal \n2. List Goals \n3. Save Goals \n4. Load Goals \n5. Record Event \n6. Quit");
             Console.Write("Select a number from the menu: ");
             response = int.Parse(Console.ReadLine());
+
         }
         if (response == 1)
         {
@@ -17,14 +20,17 @@ class Menu
         else if (response == 2)
         {
             // list goals
+            goals.DisplayGoals();
         }
         else if (response == 3)
         {
             // save goals
+            goals.SaveGoals();
         }
         else if (response == 4)
         {
             // load goals
+            goals.LoadGoals();
         }
         else if (response == 5)
         {
@@ -34,7 +40,7 @@ class Menu
         {
             Console.WriteLine("Come back soon to review your goals and gain more points! ");
         }
-        // return response;
+        return response;
     }
     private int DisplaySubMenu()
     {
