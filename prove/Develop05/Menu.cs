@@ -64,18 +64,40 @@ class Menu
                 // Simple goal
                 Console.Write("What is the name of your goal? ");
                 string goal = Console.ReadLine();
+                Console.Write("What is a short description of your goal? ");
+                string description = Console.ReadLine();
                 Console.Write("How many points is this goal worth? ");
                 int points = int.Parse(Console.ReadLine());
-                SimpleGoal simpleGoal = new SimpleGoal(goal, points);
+                SimpleGoal simpleGoal = new SimpleGoal(goal, description, points);
                 goals.AddGoal(simpleGoal);
             }
             else if (goalChoice == 2)
             {
                 // Eternal Goal
+                Console.Write("What is the name of your goal? ");
+                string goal = Console.ReadLine();
+                Console.Write("What is a short description of your goal? ");
+                string description = Console.ReadLine();
+                Console.Write("How many points is this goal worth? ");
+                int points = int.Parse(Console.ReadLine());
+                EternalGoal eternalGoal = new EternalGoal(goal, description, points);
+                goals.AddGoal(eternalGoal);
             }
             else if (goalChoice == 3)
             {
                 // Checklist Goal
+                Console.Write("What is the name of your goal? ");
+                string goal = Console.ReadLine();
+                Console.Write("What is a short description of your goal? ");
+                string description = Console.ReadLine();
+                Console.Write("How many points is this goal worth? ");
+                int points = int.Parse(Console.ReadLine());
+                Console.Write("How many times do you want to complete this goal? ");
+                int timesToCompletion = int.Parse(Console.ReadLine());
+                Console.Write("How many bonus points for when you accomplish this goal? ");
+                int bonus = int.Parse(Console.ReadLine());
+                ChecklistGoal checklistGoal = new ChecklistGoal(goal, description, points, timesToCompletion, bonus);
+                goals.AddGoal(checklistGoal);
             }
         }
         return goalChoice;

@@ -19,6 +19,7 @@ class Goals
     }
     public void DisplayGoals()
     {
+        Console.WriteLine("List of Goals: ");
         foreach (Goal g in _goals)
         {
             // Console.WriteLine($"{g.DisplayGoal()}");

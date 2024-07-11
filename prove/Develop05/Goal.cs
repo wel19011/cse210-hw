@@ -1,7 +1,9 @@
 abstract class Goal
 {
     private string _goal;
+    private string _description;
     private int _points;
+    private int _numberCompleted;
     private bool _goalIsCompleted;
 
     public abstract void DisplayGoal();
@@ -13,6 +15,14 @@ abstract class Goal
     {
         _points = points;
     }
+    public void SetDescription(string description)
+    {
+        _description = description;
+    }
+    public string GetDescription()
+    {
+        return _description;
+    }
     public int GetPoints()
     {
         return _points;
@@ -20,5 +30,9 @@ abstract class Goal
     public string GetGoal()
     {
         return _goal;
+    }
+    public int GetNumberCompleted()
+    {
+        return _numberCompleted;
     }
 }
