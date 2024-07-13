@@ -1,0 +1,2 @@
+SimpleGoal#finish project#by today#300#False
+SimpleGoal#Here's another goal#to try#10#False

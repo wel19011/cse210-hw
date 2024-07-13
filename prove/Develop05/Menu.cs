@@ -10,7 +10,14 @@ class Menu
             Console.WriteLine("Menu Options: ");
             Console.WriteLine("1. Create New Goal \n2. List Goals \n3. Save Goals \n4. Load Goals \n5. Record Event \n6. Quit");
             Console.Write("Select a number from the menu: ");
-            response = int.Parse(Console.ReadLine());
+            try
+            {
+                response = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException fm)
+            {
+                Console.WriteLine($"Format Exception: {fm} \nPlease enter correct input format");
+            }
 
         }
         if (response == 1)
@@ -30,6 +37,8 @@ class Menu
         else if (response == 4)
         {
             // load goals
+            // Console.Write("Enter the file to load from: ");
+            // string filename = Console.ReadLine();
             goals.LoadGoals();
         }
         else if (response == 5)

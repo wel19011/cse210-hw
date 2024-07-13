@@ -4,7 +4,8 @@ abstract class Goal
     private string _description;
     private int _points;
     private int _numberCompleted;
-    private bool _goalIsCompleted;
+    private bool _status;
+    private string _goalType;
 
     public abstract void DisplayGoal();
     public void SetGoal(string newGoal)
@@ -34,5 +35,9 @@ abstract class Goal
     public int GetNumberCompleted()
     {
         return _numberCompleted;
+    }
+    public override string ToString()
+    {
+        return $"{base.ToString()}#{_goal}#{_description}#{_points}#{_status}";
     }
 }
