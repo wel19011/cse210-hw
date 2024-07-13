@@ -36,6 +36,22 @@ abstract class Goal
     {
         return _numberCompleted;
     }
+    public string GetStatus()
+    {
+        if (_status)
+        {
+            return "X";
+        }
+        else
+        {
+            return " ";
+        }
+    }
+    public void SetStatus()
+    {
+        _status = true;
+        Console.WriteLine($"Congrats! you've added {_points} points to your score!");
+    }
     public override string ToString()
     {
         return $"{base.ToString()}#{_goal}#{_description}#{_points}#{_status}";

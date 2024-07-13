@@ -7,6 +7,7 @@ class Menu
 
         while (response < 1 || response > 6)
         {
+            Console.WriteLine($"\nYou have {goals.GetTotalPoints()} points.\n");
             Console.WriteLine("Menu Options: ");
             Console.WriteLine("1. Create New Goal \n2. List Goals \n3. Save Goals \n4. Load Goals \n5. Record Event \n6. Quit");
             Console.Write("Select a number from the menu: ");
@@ -22,7 +23,7 @@ class Menu
         }
         if (response == 1)
         {
-            int goalChoice = DisplaySubMenu();
+            DisplaySubMenu();
         }
         else if (response == 2)
         {
@@ -41,9 +42,27 @@ class Menu
             // string filename = Console.ReadLine();
             goals.LoadGoals();
         }
-        else if (response == 5)
+        else if (response == 5)                                 // how can I get this to work? and how to keep track of the total points earned? 
         {
             // Record Event
+            int i = 1;
+            foreach (Goal g1 in goals.GetGoalsList())
+            {
+                Console.WriteLine($"{i}. {g1.GetGoal()}");
+                i++;
+            }
+            Console.WriteLine("Please select which goal to update: ");
+            int responseUpdate = int.Parse(Console.ReadLine());
+            // goals[responseUpdate].
+            int i2 = 1;
+            foreach (Goal g2 in goals.GetGoalsList())
+            {
+                if (responseUpdate == i2)
+                {
+                    g2.SetStatus();
+                    i2++;
+                }
+            }
         }
         else if (response == 6)
         {

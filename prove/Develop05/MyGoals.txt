@@ -1,2 +1,3 @@
 SimpleGoal#finish project#by today#300#False
 SimpleGoal#Here's another goal#to try#10#False
+SimpleGoal#Walk#20 mins#30#False

@@ -1,10 +1,14 @@
 class Goals
 {
     private List<Goal> _goals = new List<Goal>();
+    private int _lengthOfGoalsList;
     private int _totalPoints;
     private string filename = "MyGoals.txt";
 
-
+    public int GetLength()
+    {
+        return _lengthOfGoalsList;
+    }
     public int GetTotalPoints()
     {
 
@@ -27,6 +31,7 @@ class Goals
     {
         // logic to read from a file and load into the goals list
         string[] lines = System.IO.File.ReadAllLines(filename);
+        _lengthOfGoalsList = 0;
 
         foreach (string line in lines)
         {
@@ -35,6 +40,7 @@ class Goals
             string name = wholeline[1];
             string description = wholeline[2];
             int points = int.Parse(wholeline[3]);
+            _lengthOfGoalsList ++;
 
 
             if (goalType == "SimpleGoal")
@@ -49,6 +55,10 @@ class Goals
             //     _goals.Add(eternalGoal);
             // }
         }
+    }
+    public List<Goal> GetGoalsList()
+    {
+        return _goals;
     }
     public void DisplayGoals()
     {

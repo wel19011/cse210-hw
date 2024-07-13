@@ -8,7 +8,7 @@ class SimpleGoal : Goal
     }
     public override void DisplayGoal()
     {
-        Console.WriteLine($"{GetGoal()} {GetDescription()} {GetPoints()}");
-        ToString();
+        Console.WriteLine($"[{GetStatus()}] {GetGoal()} {GetDescription()} {GetPoints()}");
+        // ToString();
     }
 }
