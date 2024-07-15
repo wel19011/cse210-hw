@@ -5,7 +5,6 @@ abstract class Goal
     private int _points;
     private int _numberCompleted;
     private bool _status;
-    private string _goalType;
 
     public abstract void DisplayGoal();
     public void SetGoal(string newGoal)
@@ -32,6 +31,10 @@ abstract class Goal
     {
         return _goal;
     }
+    public void IncrementNumberCompleted()
+    {
+        _numberCompleted ++;
+    }
     public int GetNumberCompleted()
     {
         return _numberCompleted;
@@ -56,4 +59,6 @@ abstract class Goal
     {
         return $"{base.ToString()}#{_goal}#{_description}#{_points}#{_status}";
     }
+    public abstract int RecordEvent();
+    
 }

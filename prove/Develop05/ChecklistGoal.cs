@@ -15,5 +15,14 @@ class ChecklistGoal : Goal
     {
         Console.WriteLine($"{GetGoal()} {GetDescription()}. Points: {GetPoints()} Completed: {GetNumberCompleted()}/{_timesToCompletion}");
     }
+    public override int RecordEvent()
+    {
+        IncrementNumberCompleted();
+        if (GetNumberCompleted() == _timesToCompletion)
+        {
+            SetStatus(); //need to handle bonus points
+        }
+        return GetPoints();
+    }
 
 }

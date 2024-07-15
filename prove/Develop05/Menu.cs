@@ -45,24 +45,7 @@ class Menu
         else if (response == 5)                                 // how can I get this to work? and how to keep track of the total points earned? 
         {
             // Record Event
-            int i = 1;
-            foreach (Goal g1 in goals.GetGoalsList())
-            {
-                Console.WriteLine($"{i}. {g1.GetGoal()}");
-                i++;
-            }
-            Console.WriteLine("Please select which goal to update: ");
-            int responseUpdate = int.Parse(Console.ReadLine());
-            // goals[responseUpdate].
-            int i2 = 1;
-            foreach (Goal g2 in goals.GetGoalsList())
-            {
-                if (responseUpdate == i2)
-                {
-                    g2.SetStatus();
-                    i2++;
-                }
-            }
+            goals.RecordEvent();
         }
         else if (response == 6)
         {

@@ -1,13 +1,12 @@
 class Goals
 {
     private List<Goal> _goals = new List<Goal>();
-    private int _lengthOfGoalsList;
     private int _totalPoints;
     private string filename = "MyGoals.txt";
 
     public int GetLength()
     {
-        return _lengthOfGoalsList;
+        return _goals.Count;
     }
     public int GetTotalPoints()
     {
@@ -31,7 +30,6 @@ class Goals
     {
         // logic to read from a file and load into the goals list
         string[] lines = System.IO.File.ReadAllLines(filename);
-        _lengthOfGoalsList = 0;
 
         foreach (string line in lines)
         {
@@ -40,9 +38,7 @@ class Goals
             string name = wholeline[1];
             string description = wholeline[2];
             int points = int.Parse(wholeline[3]);
-            _lengthOfGoalsList ++;
-
-
+            
             if (goalType == "SimpleGoal")
             {
                 SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
@@ -77,5 +73,17 @@ class Goals
     public void AddGoal(Goal newGoal)
     {
         _goals.Add(newGoal);
+    }
+    public void RecordEvent()
+    {
+        int i = 1;
+        foreach (Goal g1 in _goals)
+        {
+            Console.WriteLine($"{i}. {g1.GetGoal()}");
+            i++;
+        }
+        Console.WriteLine("Please select which goal to update: ");
+        int responseUpdate = int.Parse(Console.ReadLine());
+        _totalPoints += _goals[responseUpdate - 1].RecordEvent();
     }
 }

@@ -10,4 +10,9 @@ class EternalGoal : Goal
     {
         Console.WriteLine("This is an Eternal Goal");
     }
+    public override int RecordEvent()
+    {
+        IncrementNumberCompleted();
+        return GetPoints();
+    }
 }

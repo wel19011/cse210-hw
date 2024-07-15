@@ -11,4 +11,9 @@ class SimpleGoal : Goal
         Console.WriteLine($"[{GetStatus()}] {GetGoal()} {GetDescription()} {GetPoints()}");
         // ToString();
     }
+    public override int RecordEvent()
+    {
+        SetStatus();
+        return GetPoints();
+    }
 }
