@@ -3,10 +3,17 @@ abstract class Goal
     private string _goal;
     private string _description;
     private int _points;
-    private int _numberCompleted;
+    private int _numberCompleted { get; set; }
     private bool _status;
 
-    // public Goal(string name, string description, )
+    public Goal(string name, string description, int points, int numberCompleted = 0, bool status = false)
+    {
+        _goal = name;
+        _description = description;
+        _points = points;
+        _numberCompleted = numberCompleted;
+        _status = status;
+    }
     public abstract void DisplayGoal();
     public void SetGoal(string newGoal)
     {
@@ -28,6 +35,11 @@ abstract class Goal
     {
         return _points;
     }
+    public void SetPoints()
+    {
+        Console.Write("Enter the number of points for this goal: ");
+        _points = int.Parse(Console.ReadLine());
+    }
     public string GetGoal()
     {
         return _goal;
@@ -39,6 +51,10 @@ abstract class Goal
     public int GetNumberCompleted()
     {
         return _numberCompleted;
+    }
+    public void SetNumberCompleted(int number)
+    {
+        _numberCompleted = number;
     }
     public string GetStatus()
     {
@@ -56,10 +72,14 @@ abstract class Goal
         _status = true;
         Console.WriteLine($"Congrats! you've added {_points} points to your score!");
     }
+    public void InitializeStatus()
+    {
+        _status = false;
+    }
     public override string ToString()
     {
         // entered in this order: 0-type # 1-goalname # 2-description # 3-points # 4-status # 5-numberCompleted
-        return $"{base.ToString()}#{_goal}#{_description}#{_points}#{_status}";
+        return $"{base.ToString()}#{_goal}#{_description}#{_points}#{_numberCompleted}#{_status}";
     }
     public abstract int RecordEvent();
     

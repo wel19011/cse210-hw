@@ -3,11 +3,12 @@ class ChecklistGoal : Goal
     private int _timesToCompletion;
     private int _bonusPoints;
 
-    public ChecklistGoal(string goal, string description, int points, int timesToCompletion, int bonusPoints)
+    public ChecklistGoal(string name, string description, int points, int numberCompleted, bool status, int timesToCompletion, int bonusPoints) 
+    : base(name, description, points, numberCompleted, status)
     {
-        SetGoal(goal);
-        SetPoints(points);
-        SetDescription(description);
+        // SetGoal(name);
+        // SetPoints(points);
+        // SetDescription(description);
         _timesToCompletion = timesToCompletion;
         _bonusPoints = bonusPoints;
     }
@@ -26,6 +27,7 @@ class ChecklistGoal : Goal
     }
     public override string ToString()
     {
-        return $"{base.ToString()}#{GetGoal()}#{GetDescription()}#{GetPoints()}#{GetStatus()}#{GetNumberCompleted()}#{_timesToCompletion}#{_bonusPoints}";
+        return $"ChecklistGoal#{GetGoal()}#{GetDescription()}#{GetPoints()}#{GetStatus()}#{GetNumberCompleted()}#{_timesToCompletion}#{_bonusPoints}";
+        // return $"{base.ToString()}#{GetGoal()}#{GetDescription()}#{GetPoints()}#{GetStatus()}#{GetNumberCompleted()}#{_timesToCompletion}#{_bonusPoints}";
     }
 }

@@ -1,10 +1,10 @@
 class EternalGoal : Goal
 {
-    public EternalGoal(string goal, string description, int points)
+    public EternalGoal(string name, string description, int points, int numberCompleted, bool status) : base(name, description, points, numberCompleted, status)
     {
-        SetGoal(goal);
-        SetPoints(points);
-        SetDescription(description);
+        // SetGoal(name);
+        // SetPoints(points);
+        // SetDescription(description);
     }
     public override void DisplayGoal()
     {

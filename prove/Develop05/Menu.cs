@@ -74,31 +74,35 @@ class Menu
             {
                 // Simple goal
                 Console.Write("What is the name of your goal? ");
-                string goal = Console.ReadLine();
+                string name = Console.ReadLine();
                 Console.Write("What is a short description of your goal? ");
                 string description = Console.ReadLine();
                 Console.Write("How many points is this goal worth? ");
                 int points = int.Parse(Console.ReadLine());
-                SimpleGoal simpleGoal = new SimpleGoal(goal, description, points);
+                int numberCompleted = 0;
+                bool status = false;
+                SimpleGoal simpleGoal = new SimpleGoal(name, description, points, numberCompleted, status);
                 goals.AddGoal(simpleGoal);
             }
             else if (goalChoice == 2)
             {
                 // Eternal Goal
                 Console.Write("What is the name of your goal? ");
-                string goal = Console.ReadLine();
+                string name = Console.ReadLine();
                 Console.Write("What is a short description of your goal? ");
                 string description = Console.ReadLine();
                 Console.Write("How many points is this goal worth? ");
                 int points = int.Parse(Console.ReadLine());
-                EternalGoal eternalGoal = new EternalGoal(goal, description, points);
+                int numberCompleted = 0;
+                bool status = false;
+                EternalGoal eternalGoal = new EternalGoal(name, description, points, numberCompleted, status);
                 goals.AddGoal(eternalGoal);
             }
             else if (goalChoice == 3)
             {
                 // Checklist Goal
                 Console.Write("What is the name of your goal? ");
-                string goal = Console.ReadLine();
+                string name = Console.ReadLine();
                 Console.Write("What is a short description of your goal? ");
                 string description = Console.ReadLine();
                 Console.Write("How many points is this goal worth? ");
@@ -107,7 +111,9 @@ class Menu
                 int timesToCompletion = int.Parse(Console.ReadLine());
                 Console.Write("How many bonus points for when you accomplish this goal? ");
                 int bonus = int.Parse(Console.ReadLine());
-                ChecklistGoal checklistGoal = new ChecklistGoal(goal, description, points, timesToCompletion, bonus);
+                int numberCompleted = 0;
+                bool status = false;
+                ChecklistGoal checklistGoal = new ChecklistGoal(name, description, points, numberCompleted, status, timesToCompletion, bonus);
                 goals.AddGoal(checklistGoal);
             }
         }

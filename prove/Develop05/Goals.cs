@@ -38,25 +38,26 @@ class Goals
             string name = wholeline[1];
             string description = wholeline[2];
             int points = int.Parse(wholeline[3]);
-            bool status = bool.Parse(wholeline[4]);
-            int numberCompleted = int.Parse(wholeline[5]);
-            int bonusPoints = int.Parse(wholeline[6]);
+            int numberCompleted = int.Parse(wholeline[4]);
+            bool status = bool.Parse(wholeline[5]);
 
 
             if (goalType == "SimpleGoal")
             {
-                SimpleGoal simpleGoal = new SimpleGoal(name, description, points);
+                SimpleGoal simpleGoal = new SimpleGoal(name, description, points, numberCompleted, status);
                 _goals.Add(simpleGoal);
-                Console.WriteLine($"Added simpleGoal {name} {description} {points}");       //remember to comment this out before submitting
+                // Console.WriteLine($"Added simpleGoal {name} {description} {points}");       //remember to comment this out before submitting
             }
             else if (goalType == "EternalGoal")
             {
-                EternalGoal eternalGoal = new EternalGoal(name, description, points);
+                EternalGoal eternalGoal = new EternalGoal(name, description, points, numberCompleted, status);
                 _goals.Add(eternalGoal);
             }
             else if (goalType == "ChecklistGoal")
             {
-                ChecklistGoal checklistGoal = new ChecklistGoal(name, description, points, numberCompleted, bonusPoints); // update this constructor for this class and checklistGoal class
+                int timesToCompletion = int.Parse(wholeline[6]);
+                int bonusPoints = int.Parse(wholeline[7]);
+                ChecklistGoal checklistGoal = new ChecklistGoal(name, description, points, numberCompleted, status, timesToCompletion, bonusPoints);
                 _goals.Add(checklistGoal);
             }
         }
