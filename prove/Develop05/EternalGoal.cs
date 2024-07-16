@@ -8,11 +8,12 @@ class EternalGoal : Goal
     }
     public override void DisplayGoal()
     {
-        Console.WriteLine("This is an Eternal Goal");
+        Console.WriteLine($"[NA] {GetGoal()} {GetDescription()} {GetPoints()} ");
     }
     public override int RecordEvent()
     {
         IncrementNumberCompleted();
+        Console.WriteLine("Well done!");
         return GetPoints();
     }
 }

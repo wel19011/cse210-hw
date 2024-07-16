@@ -1,6 +1,6 @@
 class SimpleGoal : Goal
 {
-    public SimpleGoal(string goal, string description, int points)
+    public SimpleGoal(string goal, string description, int points, bool status = false) //: base(goal, description, points,status)
     {
         SetGoal(goal);
         SetPoints(points);

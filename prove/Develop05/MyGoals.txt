@@ -1,3 +1,3 @@
-SimpleGoal#finish project#by today#300#False
-SimpleGoal#Here's another goal#to try#10#True
-SimpleGoal#Walk#20 mins#30#False
+SimpleGoal#Finish#this project#100#False#0#0
+EternalGoal#Attend#the temple#15#False#0#0
+ChecklistGoal#daily to-do#things i have every day#7#False#0#0

@@ -13,7 +13,7 @@ class ChecklistGoal : Goal
     }
     public override void DisplayGoal()
     {
-        Console.WriteLine($"{GetGoal()} {GetDescription()}. Points: {GetPoints()} Completed: {GetNumberCompleted()}/{_timesToCompletion}");
+        Console.WriteLine($"[{GetStatus()}] {GetGoal()} {GetDescription()}. {GetPoints()} Completed: {GetNumberCompleted()}/{_timesToCompletion}");
     }
     public override int RecordEvent()
     {
@@ -24,5 +24,8 @@ class ChecklistGoal : Goal
         }
         return GetPoints();
     }
-
+    public override string ToString()
+    {
+        return $"{base.ToString()}#{GetGoal()}#{GetDescription()}#{GetPoints()}#{GetStatus()}#{GetNumberCompleted()}#{_timesToCompletion}#{_bonusPoints}";
+    }
 }
