@@ -9,12 +9,18 @@ class Program
         string filename = "1fg9.pdb";
 
         string [] atomLines = File.ReadLines(filename).Where(line => line.StartsWith("ATOM")).ToArray();
+        foreach (string line in atomLines)
+        {
+            // Console.WriteLine(line[2]);
+            string tag = line[0..3];
+            Console.WriteLine(tag);
+        }
         return atomLines;
     }
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Bioinformatics World!");
-
+        ReadFile();
 
     }
 }
