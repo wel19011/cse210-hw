@@ -67,6 +67,10 @@ abstract class Goal
             return " ";
         }
     }
+    public bool GetStatusFlag()
+    {
+        return _status;
+    }
     public void SetStatus()
     {
         _status = true;

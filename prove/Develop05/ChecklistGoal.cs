@@ -27,7 +27,7 @@ class ChecklistGoal : Goal
     }
     public override string ToString()
     {
-        return $"ChecklistGoal#{GetGoal()}#{GetDescription()}#{GetPoints()}#{GetStatus()}#{GetNumberCompleted()}#{_timesToCompletion}#{_bonusPoints}";
+        return $"ChecklistGoal#{GetGoal()}#{GetDescription()}#{GetPoints()}#{GetNumberCompleted()}#{GetStatusFlag()}#{_timesToCompletion}#{_bonusPoints}";
         // return $"{base.ToString()}#{GetGoal()}#{GetDescription()}#{GetPoints()}#{GetStatus()}#{GetNumberCompleted()}#{_timesToCompletion}#{_bonusPoints}";
     }
 }
