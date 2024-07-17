@@ -1,13 +1,13 @@
-class Residue
+class Chain
 {
-    private string _name;
-    private int _serialNumber;
+    private string _chainName;
+    private int _chainIdentifier;
     List<AminoAcid> _aminoAcids;
 
-    public Residue(string name, int serialNumber)
+    public Chain(string name, int chainIdentifier)
     {
-        _name = name;
-        _serialNumber = serialNumber;
+        _chainName = name;
+        _chainIdentifier = chainIdentifier;
     }
     public void AddAminoAcid(AminoAcid aminoAcid)
     {
