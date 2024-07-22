@@ -15,6 +15,10 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Bioinformatics World!");
+
+        PeriodicTable ptable = new PeriodicTable();
+        double atomMass = ptable.GetAtomMass("O");
+        Console.WriteLine($"The mass of Oxygen is: {atomMass}");
         string[] atomLines = ReadFile();
 
         Protein protein = new Protein();
@@ -30,7 +34,7 @@ class Program
             Chain chain1 = new Chain(chainIdentifier);
             while (tag != "TER") // make a chain
             {
-                Console.WriteLine($"outermost lopp: Tag = {tag}, {index}, {atomLines.Count()}");
+                // Console.WriteLine($"outermost lopp: Tag = {tag}, {index}, {atomLines.Count()}");
                 string residueName = line[17..20];
                 int residueSequenceNumber = int.Parse(line[22..26]); // this sequence number is relative to the chain it belongs to, after each TER, this should restart
                 string tempResName = residueName;
@@ -53,8 +57,8 @@ class Program
                         tag = line[0..4];
                         tempResName = line[17..20];
                         tempResNUmber = int.Parse(line[22..26]);
-                        Console.WriteLine($"Innermost loop: tempResName={tempResName}");
-                        Console.WriteLine($"Innermost loop: tempResNumber={tempResNUmber}");
+                        // Console.WriteLine($"Innermost loop: tempResName={tempResName}");
+                        // Console.WriteLine($"Innermost loop: tempResNumber={tempResNUmber}");
                     }
                     else
                     {
@@ -66,9 +70,6 @@ class Program
 
 
                 AminoAcid aminoAcid = new AminoAcid(residueName, residueSequenceNumber);
-
-                // break;
-                // Console.WriteLine(aminoAcid.CountAtoms());
             }
         }
     }
