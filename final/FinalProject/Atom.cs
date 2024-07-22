@@ -1,4 +1,4 @@
-class Atom
+class Atom : Molecule
 {
     private string _atomName;
     private int _serialNumber;

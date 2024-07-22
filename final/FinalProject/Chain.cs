@@ -1,4 +1,4 @@
-class Chain
+class Chain : Molecule
 {
     private char _chainIdentifier;
     List<AminoAcid> _aminoAcids;
@@ -33,5 +33,9 @@ class Chain
     public double GetMass()
     {
         return _totalMass;
+    }
+    public override void DisplayStats()
+    {
+        Console.WriteLine($"Chain {_chainIdentifier} has a mass: {_totalMass:F3} and has {_aminoAcids.Count} amino acids");
     }
 }

@@ -1,4 +1,4 @@
-class AminoAcid
+class AminoAcid : Molecule
 {
     private string _name;
     private int _residueSequenceNumber;
@@ -30,12 +30,15 @@ class AminoAcid
         {
             total += atom.GetMass();
         }
-        // Console.WriteLine($"Amino Acid {_name} has a mass: {total:F5} and has {_atoms.Count} atoms");
         _totalMass = total;
         return _totalMass;
     }
     public double GetMass()
     {
         return _totalMass;
+    }
+    public override void DisplayStats()
+    {
+        Console.WriteLine($"Amino Acid {_name} has a mass: {_totalMass:F3} and has {_atoms.Count} atoms");
     }
 }

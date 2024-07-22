@@ -1,4 +1,4 @@
-class Protein
+class Protein : Molecule
 {
     private string _proteinName;
     private List<Chain> _chains;
@@ -21,5 +21,9 @@ class Protein
         }
         _totalMass = total;
         Console.WriteLine($"Total weight of {_proteinName}: {_totalMass:F3} Da");
+    }
+    public override void DisplayStats()
+    {
+        Console.WriteLine($"Protein {_proteinName} has a mass: {_totalMass:F3} and has {_chains.Count} chains");
     }
 }
