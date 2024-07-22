@@ -100,10 +100,20 @@ class PeriodicTable
     };
     public double GetAtomMass(string symbol)
     {
-        string value = pTableDict[symbol];
-        string [] valueArray = value.Split(",");
-        // string fullName = valueArray[0];
-        double mass = double.Parse(valueArray[1]);
-        return mass;
+        // string symbolString = string.Parse(symbol);
+        try
+        {
+            string value = pTableDict[symbol];
+            string[] valueArray = value.Split(",");
+            // string fullName = valueArray[0];
+            double mass = double.Parse(valueArray[1]);
+            return mass;
+        }
+        catch (KeyNotFoundException knf)
+        {
+            Console.WriteLine($"KeyNotFoundException: {knf}");
+            Console.Read();
+            return 0;
+        }
     }
 }

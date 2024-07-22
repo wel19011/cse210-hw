@@ -16,9 +16,6 @@ class Program
     {
         Console.WriteLine("Hello Bioinformatics World!");
 
-        PeriodicTable ptable = new PeriodicTable();
-        double atomMass = ptable.GetAtomMass("O");
-        Console.WriteLine($"The mass of Oxygen is: {atomMass}");
         string[] atomLines = ReadFile();
 
         Protein protein = new Protein();
@@ -44,11 +41,15 @@ class Program
                 {
                     int atomSerialNumber = int.Parse(line[6..11]);
                     string atomName = line[12..16];
+                    string atomSymbol = line[13].ToString();
                     double xCoordinate = double.Parse(line[30..38]);
                     double yCoordinate = double.Parse(line[38..46]);
                     double zCoordinate = double.Parse(line[46..54]);
                     Coordinate coordinate = new Coordinate(xCoordinate, yCoordinate, zCoordinate);
-                    Atom atom = new Atom(atomName, atomSerialNumber, coordinate);
+                    PeriodicTable ptable = new PeriodicTable();
+                    double atomMass = ptable.GetAtomMass(atomSymbol);
+                    Console.WriteLine($"Symbol: {atomSymbol}  Mass: {atomMass}");
+                    Atom atom = new Atom(atomName, atomSerialNumber, coordinate, atomMass);
                     aminoAcid1.AddAtom(atom);
                     index++;
                     if (index < atomLines.Count())
