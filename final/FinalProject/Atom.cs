@@ -12,4 +12,8 @@ class Atom
         _position = position;
         _molecularMass = mass;
     }
+    public double GetMass()
+    {
+        return _molecularMass;
+    }
 }

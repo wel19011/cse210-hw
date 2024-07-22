@@ -8,7 +8,7 @@ class Program
         // string filename = Console.ReadLine();
         string filename = "1fg9.pdb";
 
-        string[] atomLines = File.ReadLines(filename).Where(line => line.StartsWith("ATOM")).ToArray();
+        string[] atomLines = File.ReadLines(filename).Where(line => line.StartsWith("ATOM") || line.StartsWith("TER")).ToArray();
 
         return atomLines;
     }
@@ -26,10 +26,14 @@ class Program
             string line = atomLines[index];
             string tag = line[0..4];    // to selectthe appropriate columns, take the first parameter - 1, and leave the second parameter as it is written on this website: https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html
             char chainIdentifier = line[21]; // this is a char A, B, C, D, E, etc
-            // Console.WriteLine(zCoordinate);
+            // if (tag == "TER ")
+            {
+                Console.WriteLine($"{tag}\n");
+                string stop = Console.ReadLine();
+            }
 
             Chain chain1 = new Chain(chainIdentifier);
-            while (tag != "TER") // make a chain
+            while (tag != "TER ") // make a chain
             {
                 // Console.WriteLine($"outermost lopp: Tag = {tag}, {index}, {atomLines.Count()}");
                 string residueName = line[17..20];
@@ -37,6 +41,12 @@ class Program
                 string tempResName = residueName;
                 int tempResNUmber = residueSequenceNumber;
                 AminoAcid aminoAcid1 = new AminoAcid(residueName, residueSequenceNumber);
+                chain1.AddAminoAcid(aminoAcid1);
+                // if (tag == "TER ")
+                // {
+                //     index++;
+                //     break;
+                // }
                 while (residueName == tempResName && tempResNUmber == residueSequenceNumber)
                 {
                     int atomSerialNumber = int.Parse(line[6..11]);
@@ -48,7 +58,8 @@ class Program
                     Coordinate coordinate = new Coordinate(xCoordinate, yCoordinate, zCoordinate);
                     PeriodicTable ptable = new PeriodicTable();
                     double atomMass = ptable.GetAtomMass(atomSymbol);
-                    Console.WriteLine($"Symbol: {atomSymbol}  Mass: {atomMass}");
+                    Console.WriteLine($"{tag} Symbol: {atomSymbol}  Mass: {atomMass} Chain Name: {chainIdentifier} {index} , {atomLines.Count()}");
+
                     Atom atom = new Atom(atomName, atomSerialNumber, coordinate, atomMass);
                     aminoAcid1.AddAtom(atom);
                     index++;
@@ -56,8 +67,16 @@ class Program
                     {
                         line = atomLines[index];
                         tag = line[0..4];
-                        tempResName = line[17..20];
-                        tempResNUmber = int.Parse(line[22..26]);
+                        if (tag == "TER ")
+                        {
+                            index++;
+                            tempResName = "";
+                        }
+                        else
+                        {
+                            tempResName = line[17..20];
+                            tempResNUmber = int.Parse(line[22..26]);
+                        }
                         // Console.WriteLine($"Innermost loop: tempResName={tempResName}");
                         // Console.WriteLine($"Innermost loop: tempResNumber={tempResNUmber}");
                     }
@@ -67,11 +86,11 @@ class Program
                         tag = "TER";
                     }
                 }
+                aminoAcid1.CalculateTotalMass();
 
-
-
-                AminoAcid aminoAcid = new AminoAcid(residueName, residueSequenceNumber);
+                // AminoAcid aminoAcid = new AminoAcid(residueName, residueSequenceNumber);
             }
+            chain1.CalculateTotalMass();
         }
     }
 }
