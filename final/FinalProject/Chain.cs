@@ -1,6 +1,5 @@
 class Chain
 {
-    // private string _chainName;
     private char _chainIdentifier;
     List<AminoAcid> _aminoAcids;
     private double _totalMass;
@@ -21,7 +20,7 @@ class Chain
     {
         return _aminoAcids.Count;
     }
-    public double CalculateTotalMass()
+    public void CalculateTotalMass()
     {
         double total = 0;
         foreach (AminoAcid aminoAcid in _aminoAcids)
@@ -29,7 +28,10 @@ class Chain
             total += aminoAcid.GetMass();
         }
         _totalMass = total;
-        Console.WriteLine($"Chain {_chainIdentifier} has a mass: {_totalMass:F5} and has {_aminoAcids.Count} amino acid residues");
+        Console.WriteLine($"Chain {_chainIdentifier} has a mass: {_totalMass:F3} Daltons and has {_aminoAcids.Count} amino acid residues");
+    }
+    public double GetMass()
+    {
         return _totalMass;
     }
 }

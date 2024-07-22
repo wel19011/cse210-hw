@@ -17,8 +17,10 @@ class Program
         Console.WriteLine("Hello Bioinformatics World!");
 
         string[] atomLines = ReadFile();
+        string filename = "1FG9";
 
-        Protein protein = new Protein();
+        Protein protein = new Protein(filename);
+        
         int index = 0;
         // foreach (string line in atomLines)
         while (index < atomLines.Count())
@@ -26,13 +28,13 @@ class Program
             string line = atomLines[index];
             string tag = line[0..4];    // to selectthe appropriate columns, take the first parameter - 1, and leave the second parameter as it is written on this website: https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html
             char chainIdentifier = line[21]; // this is a char A, B, C, D, E, etc
-            // if (tag == "TER ")
-            {
-                Console.WriteLine($"{tag}\n");
-                string stop = Console.ReadLine();
-            }
+
+            Console.WriteLine($"{tag}");
+            string stop = Console.ReadLine();
+
 
             Chain chain1 = new Chain(chainIdentifier);
+            protein.AddChain(chain1);
             while (tag != "TER ") // make a chain
             {
                 // Console.WriteLine($"outermost lopp: Tag = {tag}, {index}, {atomLines.Count()}");
@@ -58,7 +60,7 @@ class Program
                     Coordinate coordinate = new Coordinate(xCoordinate, yCoordinate, zCoordinate);
                     PeriodicTable ptable = new PeriodicTable();
                     double atomMass = ptable.GetAtomMass(atomSymbol);
-                    Console.WriteLine($"{tag} Symbol: {atomSymbol}  Mass: {atomMass} Chain Name: {chainIdentifier} {index} , {atomLines.Count()}");
+                    // Console.WriteLine($"{tag} Symbol: {atomSymbol}  Mass: {atomMass} Chain Name: {chainIdentifier} {index} , {atomLines.Count()}");
 
                     Atom atom = new Atom(atomName, atomSerialNumber, coordinate, atomMass);
                     aminoAcid1.AddAtom(atom);
@@ -87,10 +89,9 @@ class Program
                     }
                 }
                 aminoAcid1.CalculateTotalMass();
-
-                // AminoAcid aminoAcid = new AminoAcid(residueName, residueSequenceNumber);
             }
             chain1.CalculateTotalMass();
         }
+        protein.CalculateTotalMass();
     }
 }
