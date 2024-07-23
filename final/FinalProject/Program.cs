@@ -14,7 +14,7 @@ class Program
     }
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Bioinformatics World!");
+        Console.WriteLine("Hello Bioinformatics World! \nPress enter for information about each chain in the protein 1FG9. ");
 
         string[] atomLines = ReadFile();
         string filename = "1FG9";
@@ -22,14 +22,13 @@ class Program
         Protein protein = new Protein(filename);
         
         int index = 0;
-        // foreach (string line in atomLines)
         while (index < atomLines.Count())
         {
             string line = atomLines[index];
             string tag = line[0..4];    // to selectthe appropriate columns, take the first parameter - 1, and leave the second parameter as it is written on this website: https://www.cgl.ucsf.edu/chimera/docs/UsersGuide/tutorials/pdbintro.html
             char chainIdentifier = line[21]; // this is a char A, B, C, D, E, etc
 
-            Console.WriteLine($"{tag}");
+            // Console.WriteLine($"{tag}");
             string stop = Console.ReadLine();
 
 

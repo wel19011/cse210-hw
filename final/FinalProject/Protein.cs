@@ -2,7 +2,6 @@ class Protein : Molecule
 {
     private string _proteinName;
     private List<Chain> _chains;
-    // private double _totalMass;
     public Protein(string proteinName)
     {
         _proteinName = proteinName;
@@ -24,7 +23,6 @@ class Protein : Molecule
             total += chain.GetMass();
         }
         SetMass(total);
-        // Console.WriteLine($"Total weight of {_proteinName}: {GetMass():F3} Da");
         DisplayStats();
     }
     public override void DisplayStats()

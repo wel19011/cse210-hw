@@ -2,8 +2,6 @@ class Chain : Molecule
 {
     private char _chainIdentifier;
     List<AminoAcid> _aminoAcids;
-    // private double _totalMass;
-
     public Chain()
     {}
     public Chain(char chainIdentifier)
