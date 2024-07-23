@@ -2,7 +2,7 @@ class Chain : Molecule
 {
     private char _chainIdentifier;
     List<AminoAcid> _aminoAcids;
-    private double _totalMass;
+    // private double _totalMass;
 
     public Chain()
     {}
@@ -16,7 +16,7 @@ class Chain : Molecule
     {
         _aminoAcids.Add(aminoAcid);
     }
-    public int CountAminoAcids()
+    public override int CountComponents()
     {
         return _aminoAcids.Count;
     }
@@ -27,15 +27,11 @@ class Chain : Molecule
         {
             total += aminoAcid.GetMass();
         }
-        _totalMass = total;
-        Console.WriteLine($"Chain {_chainIdentifier} has a mass: {_totalMass:F3} Daltons and has {_aminoAcids.Count} amino acid residues");
-    }
-    public double GetMass()
-    {
-        return _totalMass;
+        SetMass(total);
+        Console.WriteLine($"Chain {_chainIdentifier} has a mass: {GetMass():F3} Daltons and has {_aminoAcids.Count} amino acid residues");
     }
     public override void DisplayStats()
     {
-        Console.WriteLine($"Chain {_chainIdentifier} has a mass: {_totalMass:F3} and has {_aminoAcids.Count} amino acids");
+        Console.WriteLine($"Chain {_chainIdentifier} has a mass: {GetMass():F3} and has {_aminoAcids.Count} amino acids");
     }
 }

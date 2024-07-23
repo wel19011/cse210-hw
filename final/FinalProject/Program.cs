@@ -44,11 +44,7 @@ class Program
                 int tempResNUmber = residueSequenceNumber;
                 AminoAcid aminoAcid1 = new AminoAcid(residueName, residueSequenceNumber);
                 chain1.AddAminoAcid(aminoAcid1);
-                // if (tag == "TER ")
-                // {
-                //     index++;
-                //     break;
-                // }
+
                 while (residueName == tempResName && tempResNUmber == residueSequenceNumber)
                 {
                     int atomSerialNumber = int.Parse(line[6..11]);
